@@ -15,7 +15,7 @@ function selectBar(bar, id) {
 
 function rmBar() {
     return (chosenBar ? numbers.splice(chosenBar, 1) :  errorMsg = 'Vennligst velg en bar') && show(); 
-}
+} 
 
 function editBar() {
     return (chosenBar ? (inputValue <= 10 ? (numbers[chosenBar] = inputValue) : errorMsg = 'Velg et tall mellom 1 og 10') : errorMsg = 'Vennligst velg en bar') && show();
