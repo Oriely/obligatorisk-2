@@ -10,6 +10,57 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.12.0.js"></script>
-    <script src="lib.js"></script>
+    <script src="controller.js"></script>
+    <script>
+
+    let errorMsg = '';
+    // model
+    let numbers = [7, 3, 1, 5, 8];
+    let chosenBar; // Variabel for hvilken stolpe som er valgt
+    let chosenBarValue;
+    let inputValue; // Variabel for hva som er skrevet i input-feltet
+    let selectedBar;
+
+    let chosenBorder;
+
+    let disabled = 'disabled';
+      function show() {
+
+      }
+
+    QUnit.module('beep', function() {
+        QUnit.test('fjerne stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8]
+            chosenBar = 2;
+            rmBar();
+            assert.deepEqual(numbers, [7, 3, 5, 8]);
+        });
+        QUnit.test('endre en stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8];
+            chosenBar = 2; // Variabel for hvilken stolpe som er valgt
+            inputValue = 6; // Variabel for hva som er skrevet i input-feltet
+            editBar()
+
+            assert.deepEqual(numbers, [7, 3, 6, 5, 8]);
+        });
+        QUnit.test('legge til en stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8];
+            inputValue = 6; // Variabel for hva som er skrevet i input-feltet
+            addBar()
+            assert.deepEqual(numbers, [7, 3, 1, 5, 8, 6]);
+        });
+        QUnit.test('velge en stolpe', function(assert) {
+            
+
+            assert.equal();
+        });
+        QUnit.test('velge en stolpe', function(assert) {
+          
+            selectedBar('bar','4');
+            assert.equal();
+        });
+        });
+
+    </script>
 </body>
 </html>
