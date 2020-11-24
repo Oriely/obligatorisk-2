@@ -1,16 +1,5 @@
-function selectBar(bar, id) {
-    if(chosenBar == id) {
-       chosenBar = '';
-       disabled = 'disabled'
-       show();
-    } else {
-        chosenBar = id;
-        chosenBarValue = numbers[id];
-        disabled = '';
-        show();
-        
-    
-    }
+function selectBar(id) {
+    return (id == chosenBar ? (chosenBar = '', disabled = true ) && show() : (chosenBar = id, disabled = false, chosenBarValue = numbers[id])) && show();
 }
 
 function rmBar() {

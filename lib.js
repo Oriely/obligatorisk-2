@@ -11,7 +11,7 @@ let selectedBar;
 
 let chosenBorder;
 
-let disabled = 'disabled';
+let disabled = true;
 
 
 // view
@@ -21,17 +21,17 @@ function show() {
         svgInnerHtml += createBar(numbers[i], i + 1, [i]);
     }
     contentDiv.innerHTML = `
-        <svg id="chart" width="500" height="900" viewBox="0 0 100 60">
-            ${svgInnerHtml}
-        </svg><br/>
-        Valgt stolpe: <i>${(!chosenBar ? 'ingen' : chosenBar)}</i>
-        <br />
-        Verdi:
-        <input type="number" min="1" max="10" oninput="inputValue = this.value" value="${(chosenBar ? chosenBarValue : '1') }" />
-        <button onclick="addBar()"  >Legg til stolpe</button>
-        <button ${disabled} onclick="editBar()">Endre valgt stolpe</button>
-        <button ${disabled} onclick="rmBar()">Fjerne valgt stolpe</button>
-        <br><label>${errorMsg}</label>
+            <svg id="chart" width="500" height="900" viewBox="0 0 100 60">
+                ${svgInnerHtml}
+            </svg><br/>
+            Valgt stolpe: <i>${(!chosenBar ? 'ingen' : chosenBar)}</i>
+            <br />
+            Verdi:
+            <input type="number" min="1" max="10" oninput="inputValue = this.value" value="${(chosenBar ? chosenBarValue : '0' ) }" />
+            <button onclick="addBar()"  >Legg til stolpe</button>
+            <button ${(disabled == true ? 'disabled' : '')} onclick="editBar()">Endre valgt stolpe</button>
+            <button ${(disabled == true ? 'disabled' : '')} onclick="rmBar()">Fjerne valgt stolpe</button>
+            <br><label>${errorMsg}</label>
         `;
 }
 
@@ -43,7 +43,7 @@ function createBar(number, barNo, id) {
     let y = 60 - height;
     let color = calcColor(1, 10, barNo);
     return `<rect  width="${width}" height="${height}"
-                        x="${x}" y="${y}" fill="${color}" stroke="${id == chosenBar ? 'black' : ''}" onclick="selectBar(this,'${id}');" ></rect>`;
+                        x="${x}" y="${y}" fill="${color}" stroke="${id == chosenBar ? 'black' : ''}" onclick="selectBar('${id}');" ></rect>`;
 }
 
 function calcColor(min, max, val) {

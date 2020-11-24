@@ -49,15 +49,15 @@
             addBar()
             assert.deepEqual(numbers, [7, 3, 1, 5, 8, 6]);
         });
-        QUnit.test('velge en stolpe', function(assert) {
-            
-
-            assert.equal();
+        QUnit.test('velge en stolpe som er valgt', function(assert) {
+            chosenBar = '5';
+            selectBar('5');
+            assert.equal(chosenBar, '');
         });
-        QUnit.test('velge en stolpe', function(assert) {
-          
-            selectedBar('bar','4');
-            assert.equal();
+        QUnit.test('velge en annen stolpe', function(assert) {
+            chosenBar = '5';
+            selectBar('4');
+            assert.equal(chosenBar, '4');
         });
         });
 
